@@ -16,6 +16,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 // Start express app
 const app = express();
@@ -29,7 +30,7 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting HTTP headers security
-// app.use(helmet());
+app.use(helmet());
 app.use(cors({ origin: '*', credentials: true }));
 
 //Request showed in console along with time taken to response
@@ -67,6 +68,8 @@ app.use(
     ],
   })
 );
+
+app.use(compression());
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

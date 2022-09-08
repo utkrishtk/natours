@@ -15,8 +15,8 @@ const showAlert = (type, msg) => {
 const updateSettings = async (data, type) => {
   const url =
     type === 'data'
-      ? 'http://localhost:6350/api/v1/users/updateMe'
-      : 'http://localhost:6350/api/v1/users/updateMyPassword';
+      ? '/api/v1/users/updateMe'
+      : '/api/v1/users/updateMyPassword';
   try {
     const res = await axios({
       method: 'PATCH',
