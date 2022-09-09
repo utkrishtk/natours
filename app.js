@@ -30,9 +30,9 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting HTTP headers security
-app.use(helmet());
-app.use(cors({ origin: '*' }));
-app.options(cors({ origin: '*' }));
+// app.use(helmet());
+app.use(cors());
+app.options(cors());
 
 //Request showed in console along with time taken to response
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
