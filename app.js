@@ -31,7 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Setting HTTP headers security
 app.use(helmet());
-app.use(cors({ origin: '*', credentials: true }));
+app.use(cors());
+app.options(cors());
 
 //Request showed in console along with time taken to response
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
